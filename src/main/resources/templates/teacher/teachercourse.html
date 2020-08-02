@@ -1,0 +1,809 @@
+﻿<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+  <head>
+    <title>teachercourse</title>
+    <link rel="shortcut icon" th:href="@{/static/favicon.ico}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <link href="../../resources/css/axure_rp_page.css" type="text/css" rel="stylesheet"/>
+    <link href="../../data/styles.css" type="text/css" rel="stylesheet"/>
+    <link href="../../files/teachercourse/styles.css" type="text/css" rel="stylesheet"/>
+    <script src="../../resources/scripts/jquery-3.2.1.min.js"></script>
+    <script src="../../resources/scripts/axure/axQuery.js"></script>
+    <script src="../../resources/scripts/axure/globals.js"></script>
+    <script src="../../resources/scripts/axutils.js"></script>
+    <script src="../../resources/scripts/axure/annotation.js"></script>
+    <script src="../../resources/scripts/axure/axQuery.std.js"></script>
+    <script src="../../resources/scripts/axure/doc.js"></script>
+    <script src="../../resources/scripts/messagecenter.js"></script>
+    <script src="../../resources/scripts/axure/events.js"></script>
+    <script src="../../resources/scripts/axure/recording.js"></script>
+    <script src="../../resources/scripts/axure/action.js"></script>
+    <script src="../../resources/scripts/axure/expr.js"></script>
+    <script src="../../resources/scripts/axure/geometry.js"></script>
+    <script src="../../resources/scripts/axure/flyout.js"></script>
+    <script src="../../resources/scripts/axure/model.js"></script>
+    <script src="../../resources/scripts/axure/repeater.js"></script>
+    <script src="../../resources/scripts/axure/sto.js"></script>
+    <script src="../../resources/scripts/axure/utils.temp.js"></script>
+    <script src="../../resources/scripts/axure/variables.js"></script>
+    <script src="../../resources/scripts/axure/drag.js"></script>
+    <script src="../../resources/scripts/axure/move.js"></script>
+    <script src="../../resources/scripts/axure/visibility.js"></script>
+    <script src="../../resources/scripts/axure/style.js"></script>
+    <script src="../../resources/scripts/axure/adaptive.js"></script>
+    <script src="../../resources/scripts/axure/tree.js"></script>
+    <script src="../../resources/scripts/axure/init.temp.js"></script>
+    <script src="../../resources/scripts/axure/legacy.js"></script>
+    <script src="../../resources/scripts/axure/viewer.js"></script>
+    <script src="../../resources/scripts/axure/math.js"></script>
+    <script src="../../resources/scripts/axure/jquery.nicescroll.min.js"></script>
+    <script src="../../data/document.js"></script>
+    <script src="../../files/teachercourse/data.js"></script>
+    <script type="text/javascript">
+      $axure.utils.getTransparentGifPath = function() { return 'resources/images/transparent.gif'; };
+      $axure.utils.getOtherPath = function() { return 'resources/Other.html'; };
+      $axure.utils.getReloadPath = function() { return 'resources/reload.html'; };
+    </script>
+    <style>
+      html,body{
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      a{text-decoration:none;}
+      a:hover{color: #c3463a}
+      span,a,svg{
+        cursor:pointer;
+      }
+
+      .back_div{
+        width:100%;
+        height: 100%;
+        background: rgba(0,0,0,.3);
+        display: none;/*默认隐藏*/
+        position: absolute;
+      }
+      .archive_main{
+        width:800px;
+        height:500px;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        margin-left: -400px;/* 宽度一半  */
+        margin-top: -250px;/* 高度一半  */
+        z-index: 99;
+      }
+      .archive_title{
+        width:100%;
+        height:70px;
+        background-color: #f8f8f8;
+      }
+      .archive_body{
+        height:430px;
+        background-color: white;
+      }`
+      .course_list{`
+        float: left;
+        overflow: hidden;
+        margin-left: 25px;
+        margin-top: 25px;
+        padding-top: 20px;
+        color: white;
+        width: 300px;
+        height: 90px;
+        background: linear-gradient(to bottom right, #ABDCFF,#0396FF);
+      }
+      .course_list span{font-size: 12px;}
+      .course_list .ope a{float: right;margin-right: 15px;font-size: 15px;font-family:serif;}
+      .course_list .ope a:hover{color: #c3463a}
+
+
+
+      .background_div{
+        width:100%;
+        height: 100%;
+        background: rgba(0,0,0,.3);
+        display: none;/*默认隐藏*/
+        position: absolute;
+      }
+      .panel_div{
+        width: 600px;
+        height: 360px;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        margin-left: -300px;/* 宽度一半  */
+        margin-top: -180px;/* 高度一半  */
+        background-color: white;
+        z-index: 10;
+        padding:30px;
+      }
+      .line_1{
+        height: 50px;
+        overflow: hidden;
+      }
+      .line_2,.line_3,.line_3,.line_4,.line_6{
+        height: 50px;
+        opacity: 1;
+      }
+      .line_2 input,.line_3 input{
+        width: 80%;
+        height: 30px;
+      }
+      .line_4 select{
+        width: 40%;
+        height: 30px;
+      }
+      .line_5{height: 30px;}
+      .line_5 p{font-size: 12px;}
+      .cancle,.enter{
+        width: 100px;
+        height: 40px;
+        float: right;
+        margin-right: 25px;
+        margin-top: 40px;
+        border:none;
+        background: #357ae8;
+      }
+      .line_7{
+        background-color: #F5F5F5;
+        width: 660px;
+        height: 120px;
+        margin-left: -30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="base" class="">
+
+      <div id="u0" class="ax_default">
+        <div id="u0_state0" class="panel_state" data-label="State1" style="">
+          <div id="u0_state0_content" class="panel_state_content">
+
+            <!-- Unnamed (矩形) -->
+            <div id="u1" class="ax_default box_1">
+              <div id="u1_div" class=""></div>
+              <div id="u1_text" class="text " style="display:none; visibility: hidden">
+                <p></p>
+              </div>
+            </div>
+
+            <!-- Unnamed (图片 ) -->
+            <div id="u2" class="ax_default image">
+              <img id="u2_img" class="img " src="../../images/teachercourse/u2.png"/>
+              <div id="u2_text" class="text " style="display:none; visibility: hidden">
+                <p></p>
+              </div>
+            </div>
+
+            <!-- Unnamed (矩形) -->
+            <div id="u3" class="ax_default box_1">
+              <div id="u3_div" class=""></div>
+              <div id="u3_text" class="text ">
+                <p><span>课堂</span></p>
+              </div>
+            </div>
+
+            <!-- Unnamed (形状) -->
+            <div id="u4" class="ax_default box_1">
+              <img id="u4_img" class="img " src="../../images/teachercourse/u4.svg"/>
+              <div id="u4_text" class="text " style="display:none; visibility: hidden">
+                <p></p>
+              </div>
+            </div>
+
+            <!-- Unnamed (矩形) -->
+            <div id="u5" class="ax_default box_1">
+              <div id="u5_div" class=""></div>
+              <div id="u5_text" class="text ">
+                <p><span>备课区</span></p>
+              </div>
+            </div>
+
+            <!-- Unnamed (矩形) -->
+            <div id="u6" class="ax_default box_1">
+              <div id="u6_div" class=""></div>
+              <div id="u6_text" class="text ">
+                <p><span>精品专区</span></p>
+              </div>
+            </div>
+
+            <!-- Unnamed (矩形) -->
+            <div id="u7" class="ax_default box_1">
+              <div id="u7_div" class=""></div>
+              <div id="u7_text" class="text ">
+                <p><span>我的精品</span></p>
+              </div>
+            </div>
+
+            <!-- Unnamed (图片 ) -->
+            <div id="u8" class="ax_default image">
+              <img id="u8_img" class="img " src="../../images/teachercourse/u8.png"/>
+              <div id="u8_text" class="text " style="display:none; visibility: hidden">
+                <p></p>
+              </div>
+            </div>
+
+            <!-- Unnamed (形状) -->
+            <div id="u9" class="ax_default icon">
+              <img id="u9_img" class="img " src="../../images/teachercourse/u9.svg"/>
+              <div id="u9_text" class="text " style="display:none; visibility: hidden">
+                <p></p>
+              </div>
+            </div>
+
+            <!-- Unnamed (图片 ) -->
+            <div id="u10" class="ax_default image">
+              <img id="u10_img" class="img " src="../../images/teachercourse/u10.png"/>
+              <div id="u10_text" class="text " style="display:none; visibility: hidden">
+                <p></p>
+              </div>
+            </div>
+
+            <!-- Unnamed (图片 ) -->
+            <div id="u11" class="ax_default image">
+              <img id="u11_img" class="img " src="../../images/teachercourse/u11.png"/>
+              <div id="u11_text" class="text " style="display:none; visibility: hidden">
+                <p></p>
+              </div>
+            </div>
+
+            <!-- Unnamed (矩形) -->
+            <div id="u12" class="ax_default box_1">
+              <div id="u12_div" class=""></div>
+              <div id="u12_text" class="text ">
+                <p><span>论文查重</span></p>
+              </div>
+            </div>
+
+            <!-- Unnamed (矩形) -->
+            <div id="u13" class="ax_default box_1">
+              <div id="u13_div" class=""></div>
+              <div id="u13_text" class="text ">
+                <p><span>邀请教师</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+<!--      动态数据显示-->
+      <div style="float: left;width: 60px;height: 223px"></div>
+
+      <div th:each="res:${resultData}" style="width: 288px;height: 223px;border:1px solid #000;margin-top:250px;margin-left:15px;padding: 15px;float: left;border-radius: 5px">
+        <div style="color: white;background: linear-gradient(to right, #7F7FD5,#86A8E7);">
+          <div style="margin-left: 20px;">
+            <a style="font-size: 30px;" th:href="@{/teacher/homeworkdetail(courseid=${res.courseid},coursemembercount=${res.coursemembercount},coursename=${res.coursename})}" th:text="${res.coursename}">无数据</a><br>
+            <span th:text="${res.courseclass}">无数据</span>
+          </div>
+          <div style="margin-top: 15px;">
+            <span style="margin-left: 15px">
+              加课码：<span th:text="${res.courseid}">无数据</span>
+            </span>
+            <div style="float: right;margin-right: 15px;">
+              <span th:text="${res.courseyear}">无数据</span>
+              <br>
+              <span th:text="${res.courseterm}">无数据</span>
+            </div>
+          </div>
+          <div style="margin-top: 15px;">
+            <hr style="width: 253px;">
+          </div>
+        </div>
+        <div style="font-size: 12px">近期作业</div>
+        <div style="font-size: 12px">
+          <a href="#" th:utext="${res.homeworknames}">暂无任务</a>
+        </div>
+        <div style="margin-top: 25px;float: right">
+          <span style="font-size: 12px;">取消置顶</span>
+<!--          <input type="hidden" >-->
+          <span style="font-size: 13px;">
+            <a href="javascript:void(0);" th:onclick="editTeaCourse([[${res.courseid}]])" >编辑</a>
+          </span>
+          <span style="font-size: 13px;">
+            <a href="javascript:void(0);" th:onclick="archiveTeaCourse([[${res.courseid}]])" >归档</a>
+          </span>
+          <span style="font-size: 13px;">
+            <a href="javascript:void(0);" th:onclick="deleteTeaCourse([[${res.courseid}]])" style="color: red">删除</a>
+          </span>
+        </div>
+
+      </div>
+
+
+
+
+      <!-- Unnamed (矩形) -->
+      <div id="u14" class="ax_default box_1">
+        <div id="u14_div" class=""></div>
+        <div id="u14_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u15" class="ax_default box_1">
+        <div id="u15_div" class=""></div>
+        <div id="u15_text" class="text ">
+          <p><span>置顶课程</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (图片 ) -->
+      <div id="u17" class="ax_default image">
+        <img id="u17_img" class="img " src="../../images/teachercourse/u17.png"/>
+        <div id="u17_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u19" class="ax_default box_1">
+        <div id="u19_div" class=""></div>
+        <div id="u19_text" class="text ">
+          <p><span id="gdgl">归档管理</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u20" class="ax_default primary_button">
+        <div id="u20_div" class=""></div>
+        <div id="u20_text" class="text ">
+          <p><span onclick="createCourse()">＋创建课程</span></p>
+        </div>
+      </div>
+
+
+      <!-- Unnamed (动态面板) -->
+      <div id="u42" class="ax_default ax_default_hidden" style="display:none; visibility: hidden">
+        <div id="u42_state0" class="panel_state" data-label="State1" style="">
+          <div id="u42_state0_content" class="panel_state_content">
+
+            <!-- Unnamed (三角形) -->
+            <div id="u43" class="ax_default flow_shape">
+              <img id="u43_img" class="img " src="../../images/teachercourse/u43.svg"/>
+              <div id="u43_text" class="text " style="display:none; visibility: hidden">
+                <p></p>
+              </div>
+            </div>
+
+            <!-- Unnamed (矩形) -->
+            <div id="u44" class="ax_default box_1">
+              <div id="u44_div" class=""></div>
+              <div id="u44_text" class="text " style="display:none; visibility: hidden">
+                <p></p>
+              </div>
+            </div>
+
+            <!-- Unnamed (矩形) -->
+            <div id="u45" class="ax_default box_1">
+              <div id="u45_div" class=""></div>
+              <div id="u45_text" class="text ">
+                <p><span>&nbsp;&nbsp;&nbsp; 开通VIP</span></p>
+              </div>
+            </div>
+
+            <!-- Unnamed (矩形) -->
+            <div id="u46" class="ax_default box_1">
+              <div id="u46_div" class=""></div>
+              <div id="u46_text" class="text ">
+                <p><span>&nbsp;&nbsp;&nbsp; 机构账号绑定</span></p>
+              </div>
+            </div>
+
+            <!-- Unnamed (矩形) -->
+            <div id="u47" class="ax_default box_1">
+              <div id="u47_div" class=""></div>
+              <div id="u47_text" class="text ">
+                <p><span>&nbsp;&nbsp;&nbsp; <a th:href="@{/teacher/teaMyinfo}">个人设置</a></span></p>
+              </div>
+            </div>
+
+            <!-- Unnamed (矩形) -->
+            <div id="u48" class="ax_default box_1">
+              <div id="u48_div" class=""></div>
+              <div id="u48_text" class="text ">
+                <p><span>&nbsp;
+                <a  th:href="@{/logout}">退出账户</a>
+                </span></p>
+              </div>
+            </div>
+
+            <!-- Unnamed (图片 ) -->
+            <div id="u49" class="ax_default image">
+              <img id="u49_img" class="img " src="../../images/teachercourse/u49.png"/>
+              <div id="u49_text" class="text " style="display:none; visibility: hidden">
+                <p></p>
+              </div>
+            </div>
+
+            <!-- Unnamed (图片 ) -->
+            <div id="u50" class="ax_default image">
+              <img id="u50_img" class="img " src="../../images/teachercourse/u50.png"/>
+              <div id="u50_text" class="text " style="display:none; visibility: hidden">
+                <p></p>
+              </div>
+            </div>
+
+            <!-- Unnamed (图片 ) -->
+            <div id="u51" class="ax_default image">
+              <img id="u51_img" class="img " src="../../images/teachercourse/u51.png"/>
+              <div id="u51_text" class="text " style="display:none; visibility: hidden">
+                <p></p>
+              </div>
+            </div>
+
+            <!-- Unnamed (图片 ) -->
+            <div id="u52" class="ax_default image">
+              <img id="u52_img" class="img " src="../../images/teachercourse/u52.png"/>
+              <div id="u52_text" class="text " style="display:none; visibility: hidden">
+                <p></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u53" class="ax_default primary_button">
+        <div id="u53_div" class=""></div>
+        <div id="u53_text" class="text ">
+          <p><span onclick="joinCourse()">＋加入课程</span></p>
+        </div>
+      </div>
+    </div>
+
+
+
+<!--    归档管理模态框-->
+    <div class="back_div" id="gdgl_div">
+      <div class="archive_main">
+        <div class="archive_title">
+          <div style="width: 100%; text-align: center;">
+            <a style="line-height: 70px;font-size: 18px;font-family:'microsoft yahei';">归档管理</a>
+            <svg id="gdgl_close" style="width: 30px;height: 30px;float: right;margin-right: 30px;margin-top: 20px;" t="1592464762253" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3469" width="200" height="200"><path d="M566.97558594 521.09667969L856.8828125 231.18945312c14.63378906-14.63378906 14.63378906-38.75976563 0-53.39355468l-1.58203125-1.58203125c-14.63378906-14.63378906-38.75976563-14.63378906-53.39355469 0L512 466.51660156 222.09277344 176.21386719c-14.63378906-14.63378906-38.75976563-14.63378906-53.39355469 0l-1.58203125 1.58203125c-15.02929688 14.63378906-15.02929688 38.75976563 0 53.39355469l289.90722656 289.90722656L167.1171875 811.00390625c-14.63378906 14.63378906-14.63378906 38.75976563 0 53.39355469l1.58203125 1.58203125c14.63378906 14.63378906 38.75976563 14.63378906 53.39355469 0L512 576.07226563 801.90722656 865.97949219c14.63378906 14.63378906 38.75976563 14.63378906 53.39355469 0l1.58203125-1.58203125c14.63378906-14.63378906 14.63378906-38.75976563 0-53.39355469L566.97558594 521.09667969z" fill="#363F4D" p-id="3470"></path></svg>
+          </div>
+        </div>
+        <div class="archive_body">
+          <div style="width:650px;margin: 0 auto;" th:fragment="archiveCourseInfos" id="archiveCourseInfosId">
+            <!-- 遍历开始位置 -->
+            <div class="course_list" th:each="archivecourse:${ArchiveUserCourseInfos}">
+              <a th:href="@{/teacher/homeworkdetail(courseid=${archivecourse.courseid},coursemembercount=${archivecourse.membercount},coursename=${archivecourse.coursename})}" th:text="${archivecourse.coursename}" style="margin-left: 25px;margin-top: 25px;">.NET架构与程序设计</a>
+              <p style="margin-left: 25px;margin-top: 15px;">
+                <span>角色：</span><span th:text="${archivecourse.userrole}">学生</span>
+                <span class="ope">
+                    <a href="javascript:void(0);" th:onclick="deleteArchive([[${archivecourse.courseid}]])">恢复</a>
+                    <a href="javascript:void(0);" th:onclick="deleteTeaCourse([[${archivecourse.courseid}]])" >删除</a>
+                </span>
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+<!--    提交添加信息模态框-->
+    <div class="background_div" id="Motaikuang">
+      <div class="panel_div">
+        <div class="line_1">
+          <h4 style="float: left;">新建课程</h4>
+          <span style="float: right;line-height: 50px;" onclick="closeThis()">
+							<svg t="1590325150931" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1163" width="16" height="16"><path d="M583.168 523.776L958.464 148.48c18.944-18.944 18.944-50.176 0-69.12l-2.048-2.048c-18.944-18.944-50.176-18.944-69.12 0L512 453.12 136.704 77.312c-18.944-18.944-50.176-18.944-69.12 0l-2.048 2.048c-19.456 18.944-19.456 50.176 0 69.12l375.296 375.296L65.536 899.072c-18.944 18.944-18.944 50.176 0 69.12l2.048 2.048c18.944 18.944 50.176 18.944 69.12 0L512 594.944 887.296 970.24c18.944 18.944 50.176 18.944 69.12 0l2.048-2.048c18.944-18.944 18.944-50.176 0-69.12L583.168 523.776z" p-id="1164"></path></svg>
+						</span>
+        </div>
+        <div class="line_2">
+          <span>课程名称：</span>
+          <input type="text" id="createCourseName" placeholder="请输入课程名"/>
+        </div>
+        <div class="line_3">
+          <span>班级名称：</span>
+          <input type="text" id="createCourseClass" placeholder="请输入班级名称(选填)"/>
+        </div>
+        <div class="line_4">
+          <span>选择学期：</span>
+          <select id="createCourseYear">
+            <option value ="2015-2016">2015-2016</option>
+            <option value ="2016-2017">2016-2017</option>
+            <option value="2017-2018">2017-2018</option>
+            <option value="2018-2019">2018-2019</option>
+            <option value="2018-2019">2019-2020</option>
+            <option value="2018-2019">2020-2021</option>
+          </select>
+          <select id="createCourseTerm">
+            <option value ="不限">不限</option>
+            <option value ="第一学期">第一学期</option>
+            <option value="第二学期">第二学期</option>
+          </select>
+        </div>
+        <div class="line_5">
+          <p>学生必须额外填写下列信息才能加入课程</p>
+        </div>
+        <div class="line_6">
+          <input type="checkbox" name="category" value="财经" /><span>自然班级</span>
+          <input type="checkbox" name="category" value="财经" /><span>年级</span>
+          <input type="checkbox" name="category" value="财经" /><span>入学年月</span>
+        </div>
+        <div class="line_7">
+          <input type="hidden" id="getUpCourseid">
+          <input type="hidden" id="insert_OR_Update">
+          <button class="enter" onclick="insert_or_Update()">确认</button>
+          <button class="cancle" onclick="closeThis()">取消</button>
+
+        </div>
+      </div>
+    </div>
+
+
+
+    <script src="../../resources/scripts/axure/ios.js"></script>
+
+  <script>
+
+    /*
+    * 加入课程
+    * */
+    function joinCourse() {
+      var jionNumber = prompt("请输入课程加课验证码");
+      // alert(jionNumber);
+      if(jionNumber == ""){
+        alert("课程加课验证码为空");
+      }
+      else{
+        console.log(jionNumber);
+        $.ajax({
+          url:"/teacher/joinCourse",
+          data:jionNumber,
+          type: "POST",
+          contentType : "application/json",
+          success: function (data) {
+            alert(data);
+            if(data == "添加成功"){
+              location.reload();
+            }
+            console.log("SUCCESS : ", data);
+          },
+          error: function (e) {
+            var checkInfo = e.responseText ;
+            console.log("ERROR : ", e);
+          }
+        });
+      }
+
+    }
+    
+    
+    /*
+    * 操作模态框
+    * */
+    //点击创建课程按钮
+    function createCourse() {
+        $("#Motaikuang").show();
+        //设置当前模态框为新增课程
+        $("#insert_OR_Update").val("insert");
+          $("#createCourseName").val("");
+          $("#createCourseClass").val("");
+          $("#createCourseYear").val("");
+          $("#createCourseTerm").val("");
+        console.log("当前模态框为新增:"+$("#insert_OR_Update").val());
+    }
+    function closeThis(){
+      $("#Motaikuang").hide();
+    }
+
+//模态框通过隐藏表单值判断是修改还是新增
+    function insert_or_Update() {
+      if ($("#insert_OR_Update").val() == "insert") {
+        submitCourseInfo();
+      }
+      if ($("#insert_OR_Update").val() == "update") {
+        submitUpdateCourseInfo();
+      } else {
+        console.log("错误模态框状态");
+      }
+    }
+    /*
+    * 提交新增课程
+    * 通过动态设置id
+    * */
+    function submitCourseInfo(){
+        data = {
+          coursename:$("#createCourseName").val(),
+          courseclass:$("#createCourseClass").val(),
+          courseyear:$("#createCourseYear").val(),
+          courseterm:$("#createCourseTerm").val()
+        };
+        $.ajax({
+          url:"/teacher/createcourse",
+          data:JSON.stringify(data),
+          type: "POST",
+          contentType : "application/json",
+          success: function (data) {
+            alert(data);
+            location.reload();
+          },
+          error: function (e) {
+            var checkInfo = e.responseText ;
+            console.log("ERROR : ", e);
+            console.log(checkInfo);
+          }
+        });
+    }
+
+    /*
+    * 编辑课程模态框获取信息
+    * */
+    //点击修改课程按钮
+    function editTeaCourse(courseid) {
+      $("#insert_OR_Update").val("update");//将模态框状态设置为修改课程信息
+      console.log("当前模态框为修改:"+$("#insert_OR_Update").val());
+
+      $("#getUpCourseid").val(courseid);//将课程id存储到模态框隐藏表单
+      $.ajax({
+        url:"/teacher/getUpdateCourseInfoBycourseid",
+        data:courseid,
+        type: "POST",
+        contentType : "application/json",
+        success: function (data) {
+
+          $("#createCourseName").val(data[0].coursename);
+          $("#createCourseClass").val(data[0].courseclass);
+          // $("#createCourseYear").val(data.courseyear);
+          // $("#createCourseTerm").val(data.courseterm);
+          //因为数据库本身数据问题，暂不设置这两项的值
+
+          $("#Motaikuang").show();
+
+          console.log("SUCCESS : ", data);
+        },
+        error: function (e) {
+          var checkInfo = e.responseText ;
+          console.log("ERROR : ", e);
+          console.log(checkInfo);
+        }
+      });
+    }
+
+    /*
+    *提交修改课程
+    * */
+    function submitUpdateCourseInfo() {
+      console.log("当前课程id"+ $("#getUpCourseid").val());
+      data = {
+        courseid: $("#getUpCourseid").val(), //修改需要传递课程id
+        coursename:$("#createCourseName").val(),
+        courseclass:$("#createCourseClass").val(),
+        courseyear:$("#createCourseYear").val(),
+        courseterm:$("#createCourseTerm").val()
+      };
+      $.ajax({
+        url:"/teacher/updatecourse",
+        data:JSON.stringify(data),
+        type: "POST",
+        contentType : "application/json",
+        success: function (data) {
+          alert(data);
+          if(data == "修改成功"){
+            location.reload();
+          }
+          console.log("SUCCESS : ", data);
+        },
+        error: function (e) {
+          var checkInfo = e.responseText ;
+          console.log("ERROR : ", e);
+          console.log(checkInfo);
+        }
+      });
+    }
+
+    /*
+    * 通过课程id删除课程
+    * */
+    function deleteTeaCourse(courseid){
+      var r=confirm("删除该课程会删除相关的所有作业信息，是否确认");
+      if (r==true){
+        $.ajax({
+          url:"/teacher/deletecoursebyid",
+          data:courseid,
+          type: "POST",
+          contentType : "application/json",
+          success: function (data) {
+            alert(data);
+            if(data == "删除成功") location.reload();
+          },
+          error: function (e) {
+            var checkInfo = e.responseText ;
+            console.log("ERROR : ", e);
+            console.log(checkInfo);
+          }
+        });
+      }
+
+
+    }
+
+    /*
+    * 添加到归档
+    * */
+    function archiveTeaCourse(courseid){
+      var r = confirm("要归档此课程吗？");
+      if(r = true){
+        $.ajax({
+          url:"/addArchivecourse",
+          data:courseid,
+          type: "POST",
+          contentType : "application/json",
+          success: function (data) {
+            alert(data);
+            if(data == "该课程归档成功") location.reload();
+            console.log("SUCCESS : ", data);
+          },
+          error: function (e) {
+            var checkInfo = e.responseText ;
+            console.log("ERROR : ", e);
+            console.log(checkInfo);
+          }
+        });
+      }
+    }
+
+    /*
+    * 从归档恢复到课程列表
+    * */
+    function deleteArchive(courseid) {
+      var r = confirm("要恢复此课程么？");
+      if (r == true) {
+        $.ajax({
+          url: "/deleteArchiveByCourseid",
+          data: courseid,
+          type: "POST",
+          contentType: "application/json",
+          success: function (data) {
+            alert(data);
+            if (data == "恢复成功") location.reload();
+          },
+          error: function (e) {
+            var checkInfo = e.responseText;
+            console.log("ERROR : ", e);
+            console.log(checkInfo);
+          }
+        });
+      }
+    }
+
+    /*
+    * 归档管理
+    * */
+      //显示隐藏模态框
+      $("#gdgl").click(function(){
+
+        //ajax请求归档信息
+        $.ajax({
+          url:"/teacher/getArchiveInfos",
+          type: "POST",
+          contentType : "application/json",
+          success: function (data) {
+            $("#archiveCourseInfosId").html(data);//将数据传递给局部刷新的位置
+            console.log(data);
+          },
+          error: function (e) {
+            console.log("ERROR : ", e);
+          }
+        });
+
+        $("#gdgl_div").show();
+      })
+      $("#gdgl_close").click(function(){
+        $("#gdgl_div").hide();
+      })
+
+
+
+  </script>
+  </body>
+</html>

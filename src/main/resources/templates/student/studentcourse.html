@@ -1,0 +1,792 @@
+﻿<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+  <head>
+    <title>studentCourse</title>
+    <link rel="shortcut icon" th:href="@{/static/favicon.ico}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <link href="../resources/css/axure_rp_page.css" type="text/css" rel="stylesheet"/>
+    <link href="../data/styles.css" type="text/css" rel="stylesheet"/>
+    <link href="../files/studentcourse/styles.css" type="text/css" rel="stylesheet"/>
+    <script src="../resources/scripts/jquery-3.2.1.min.js"></script>
+    <script src="../resources/scripts/axure/axQuery.js"></script>
+    <script src="../resources/scripts/axure/globals.js"></script>
+    <script src="../resources/scripts/axutils.js"></script>
+    <script src="../resources/scripts/axure/annotation.js"></script>
+    <script src="../resources/scripts/axure/axQuery.std.js"></script>
+    <script src="../resources/scripts/axure/doc.js"></script>
+    <script src="../resources/scripts/messagecenter.js"></script>
+    <script src="../resources/scripts/axure/events.js"></script>
+    <script src="../resources/scripts/axure/recording.js"></script>
+    <script src="../resources/scripts/axure/action.js"></script>
+    <script src="../resources/scripts/axure/expr.js"></script>
+    <script src="../resources/scripts/axure/geometry.js"></script>
+    <script src="../resources/scripts/axure/flyout.js"></script>
+    <script src="../resources/scripts/axure/model.js"></script>
+    <script src="../resources/scripts/axure/repeater.js"></script>
+    <script src="../resources/scripts/axure/sto.js"></script>
+    <script src="../resources/scripts/axure/utils.temp.js"></script>
+    <script src="../resources/scripts/axure/variables.js"></script>
+    <script src="../resources/scripts/axure/drag.js"></script>
+    <script src="../resources/scripts/axure/move.js"></script>
+    <script src="../resources/scripts/axure/visibility.js"></script>
+    <script src="../resources/scripts/axure/style.js"></script>
+    <script src="../resources/scripts/axure/adaptive.js"></script>
+    <script src="../resources/scripts/axure/tree.js"></script>
+    <script src="../resources/scripts/axure/init.temp.js"></script>
+    <script src="../resources/scripts/axure/legacy.js"></script>
+    <script src="../resources/scripts/axure/viewer.js"></script>
+    <script src="../resources/scripts/axure/math.js"></script>
+    <script src="../resources/scripts/axure/jquery.nicescroll.min.js"></script>
+    <script src="../data/document.js"></script>
+    <script src="../files/studentcourse/data.js"></script>
+    <script type="text/javascript">
+      $axure.utils.getTransparentGifPath = function() { return 'resources/images/transparent.gif'; };
+      $axure.utils.getOtherPath = function() { return 'resources/Other.html'; };
+      $axure.utils.getReloadPath = function() { return 'resources/reload.html'; };
+    </script>
+    <style>
+      a{text-decoration:none;}
+      a:hover{color: #c3463a}
+      span,a,svg{
+        cursor:pointer;
+      }
+      .courseInfos{
+        width: 288px;
+        height: 223px;
+        border:1px solid #000;
+        margin-top:250px;
+        margin-left:15px;
+        padding: 15px;
+        float: left;
+        border-radius: 5px;
+      }
+      .back_div{
+        width:110%;
+        height:200%;
+        background: rgba(0,0,0,.3);
+        display: none;/*默认隐藏*/
+        position: absolute;
+      }
+      .archive_main{
+        width:800px;
+        height:500px;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        margin-left: -400px;/* 宽度一半  */
+        margin-top: -250px;/* 高度一半  */
+        z-index: 99;
+      }
+      .archive_title{
+        width:100%;
+        height:70px;
+        background-color: #f8f8f8;
+      }
+      .archive_body{
+        height:430px;
+        background-color: white;
+      }
+      .course_list{
+        float: left;
+        overflow: hidden;
+        margin-left: 25px;
+        margin-top: 25px;
+        padding-top: 20px;
+        color: white;
+        width: 300px;
+        height: 90px;
+        background: linear-gradient(to bottom right, #ABDCFF,#0396FF);
+      }
+      .course_list span{font-size: 12px;}
+      .course_list .ope a{float: right;margin-right: 15px;font-size: 15px;font-family:serif; }
+      .course_list .ope a:hover{color: #c3463a}
+    </style>
+  </head>
+  <body>
+    <div id="base" class="">
+
+      <div id="u0" class="ax_default">
+        <div id="u0_state0" class="panel_state" data-label="State1" style="">
+          <div id="u0_state0_content" class="panel_state_content">
+
+            <!-- Unnamed (矩形) -->
+            <div id="u1" class="ax_default box_1">
+              <div id="u1_div" class=""></div>
+              <div id="u1_text" class="text " style="display:none; visibility: hidden">
+                <p></p>
+              </div>
+            </div>
+
+            <!-- Unnamed (图片 ) -->
+            <div id="u2" class="ax_default image">
+              <img id="u2_img" class="img " src="../images/studentcourse/u2.png"/>
+              <div id="u2_text" class="text " style="display:none; visibility: hidden">
+                <p></p>
+              </div>
+            </div>
+
+            <!-- Unnamed (矩形) -->
+            <div id="u3" class="ax_default box_1">
+              <div id="u3_div" class=""></div>
+              <div id="u3_text" class="text ">
+                <p><span>课堂</span></p>
+              </div>
+            </div>
+
+            <!-- Unnamed (形状) -->
+            <div id="u4" class="ax_default box_1">
+              <img id="u4_img" class="img " src="../images/studentcourse/u4.svg"/>
+              <div id="u4_text" class="text " style="display:none; visibility: hidden">
+                <p></p>
+              </div>
+            </div>
+
+            <!-- Unnamed (矩形) -->
+            <div id="u5" class="ax_default box_1">
+              <div id="u5_div" class=""></div>
+              <div id="u5_text" class="text ">
+                <p><span>精品慕课</span></p>
+              </div>
+            </div>
+
+            <!-- Unnamed (矩形) -->
+            <div id="u6" class="ax_default box_1">
+              <div id="u6_div" class=""></div>
+              <div id="u6_text" class="text ">
+                <p><span>我的精品</span></p>
+              </div>
+            </div>
+
+            <!-- Unnamed (矩形) -->
+            <div id="u7" class="ax_default box_1">
+              <div id="u7_div" class=""></div>
+              <div id="u7_text" class="text ">
+                <p><span>双选会</span></p>
+              </div>
+            </div>
+
+            <!-- Unnamed (矩形) -->
+            <div id="u8" class="ax_default box_1">
+              <div id="u8_div" class=""></div>
+              <div id="u8_text" class="text ">
+                <p><span>论文管理</span></p>
+              </div>
+            </div>
+
+            <!-- Unnamed (矩形) -->
+            <div id="u9" class="ax_default box_1">
+              <div id="u9_div" class=""></div>
+              <div id="u9_text" class="text ">
+                <p><span>HOT</span></p>
+              </div>
+            </div>
+
+            <!-- Unnamed (图片 ) -->
+            <div id="u10" class="ax_default image">
+              <img id="u10_img" class="img " src="../images/studentcourse/u10.png"/>
+              <div id="u10_text" class="text " style="display:none; visibility: hidden">
+                <p></p>
+              </div>
+            </div>
+
+            <!-- Unnamed (矩形) -->
+            <div id="u11" class="ax_default box_1">
+              <div id="u11_div" class=""></div>
+              <div id="u11_text" class="text ">
+                <p><span>工具</span></p>
+              </div>
+            </div>
+
+            <!-- Unnamed (图片 ) -->
+            <div id="u12" class="ax_default image">
+              <img id="u12_img" class="img " src="../images/studentcourse/u12.png"/>
+              <div id="u12_text" class="text " style="display:none; visibility: hidden">
+                <p></p>
+              </div>
+            </div>
+
+            <!-- Unnamed (形状) -->
+            <div id="u13" class="ax_default icon">
+              <img id="u13_img" class="img " src="../images/studentcourse/u13.svg"/>
+              <div id="u13_text" class="text " style="display:none; visibility: hidden">
+                <p></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<!--      动态数据显示-->
+      <div style="float: left;width: 60px;height: 223px"></div>
+
+
+     <div th:each="res:${resultData}" class="courseInfos">
+        <div style="color: white;background: linear-gradient(to right, #7F7FD5,#86A8E7);">
+          <div style="margin-left: 20px;">
+            <a style="font-size: 30px;" th:href="@{/student/homeworkdetail(courseid=${res.courseid})}" th:text="${res.coursename}">无数据</a><br>
+            <span th:text="${res.courseclass}">无数据</span>
+          </div>
+          <div style="margin-top: 15px;">
+            <span style="margin-left: 15px">
+              加课码：<span th:text="${res.courseid}">无数据</span>
+            </span>
+            <div style="float: right;margin-right: 15px;">
+              <span th:text="${res.courseyear}">无数据</span>
+              <br>
+              <span th:text="${res.courseterm}">无数据</span>
+            </div>
+          </div>
+          <div style="margin-top: 15px;">
+            <hr style="width: 253px;">
+          </div>
+        </div>
+        <div style="font-size: 12px">近期作业</div>
+        <div style="font-size: 12px">
+          <a href="#" th:utext="${res.homeworknames}">暂无任务</a>
+        </div>
+        <div style="margin-top: 25px;">
+          <div style="float: left">
+            <img width="24px" height="24px" src="../../images/studentcourse/u35.svg" />
+              <span style="font-size: 24px;">
+              <span th:utext="${res.teachername}">null</span>
+            </span>
+          </div>
+          <div style="float: right;">
+            <span style="font-size: 12px;">取消置顶</span>
+            <span style="font-size: 13px;">
+            <a href="javascript:void(0);" th:onclick="archiveTeaCourse([[${res.courseid}]])" >归档</a>
+          </span>
+            <span style="font-size: 13px;">
+              <a href="javascript:void(0);" th:onclick="deleteStuCourse([[${res.courseid}]])">退课</a>
+            </span>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u14" class="ax_default box_1">
+        <div id="u14_div" class=""></div>
+        <div id="u14_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u15" class="ax_default box_1">
+        <div id="u15_div" class=""></div>
+        <div id="u15_text" class="text ">
+          <p><span>置顶课程</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (图片 ) -->
+      <div id="u17" class="ax_default image">
+        <img id="u17_img" class="img " src="../images/studentcourse/u17.png"/>
+        <div id="u17_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u19" class="ax_default box_1">
+        <div id="u19_div" class=""></div>
+        <div id="u19_text" class="text ">
+          <p><span id="gdgl">归档管理</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u20" class="ax_default primary_button">
+        <div id="u20_div" class=""></div>
+        <div id="u20_text" class="text ">
+          <p><span onclick="joinCourse()">＋加入课程</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u21" class="ax_default box_1">
+        <div id="u21_div" class=""></div>
+        <div id="u21_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u22" class="ax_default box_1">
+        <div id="u22_div" class=""></div>
+        <div id="u22_text" class="text ">
+          <p><span>其他课程</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u23" class="ax_default box_1">
+        <div id="u23_div" class=""></div>
+        <div id="u23_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u24" class="ax_default box_1">
+        <div id="u24_div" class=""></div>
+        <div id="u24_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+
+
+
+      <!-- Unnamed (形状) -->
+      <div id="u69" class="ax_default icon">
+        <img id="u69_img" class="img " src="../images/studentcourse/u25.svg"/>
+        <div id="u69_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- E (组合) -->
+      <div id="u70" class="ax_default" data-label="E" data-left="73" data-top="644" data-width="318" data-height="253">
+
+        <!-- Unnamed (矩形) -->
+        <div id="u71" class="ax_default box_1">
+          <div id="u71_div" class=""></div>
+          <div id="u71_text" class="text " style="display:none; visibility: hidden">
+            <p></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (图片 ) -->
+        <div id="u72" class="ax_default image">
+          <img id="u72_img" class="img " src="../images/studentcourse/u72.svg"/>
+          <div id="u72_text" class="text " style="display:none; visibility: hidden">
+            <p></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (矩形) -->
+        <div id="u73" class="ax_default box_1">
+          <div id="u73_div" class=""></div>
+          <div id="u73_text" class="text ">
+            <p><span>面向对象程序设计</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (矩形) -->
+        <div id="u74" class="ax_default box_1">
+          <div id="u74_div" class=""></div>
+          <div id="u74_text" class="text ">
+            <p><span>&nbsp;&nbsp; &nbsp;&nbsp; 加课码:39EM62</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (矩形) -->
+        <div id="u75" class="ax_default box_1">
+          <div id="u75_div" class=""></div>
+          <div id="u75_text" class="text ">
+            <p><span>2019-2020</span></p><p><span>第二学期</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (矩形) -->
+        <div id="u76" class="ax_default box_1">
+          <div id="u76_div" class=""></div>
+          <div id="u76_text" class="text ">
+            <p><span>近期作业</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (形状) -->
+        <div id="u77" class="ax_default icon">
+          <img id="u77_img" class="img " src="../images/studentcourse/u35.svg"/>
+          <div id="u77_text" class="text " style="display:none; visibility: hidden">
+            <p></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (矩形) -->
+        <div id="u78" class="ax_default box_1">
+          <div id="u78_div" class=""></div>
+          <div id="u78_text" class="text ">
+            <p><span>张老师</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (矩形) -->
+        <div id="u79" class="ax_default box_1">
+          <div id="u79_div" class=""></div>
+          <div id="u79_text" class="text ">
+            <p><span>取消置顶</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (矩形) -->
+        <div id="u80" class="ax_default box_1">
+          <div id="u80_div" class=""></div>
+          <div id="u80_text" class="text ">
+            <p><span>更多</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (圆形) -->
+        <div id="u81" class="ax_default ellipse">
+          <img id="u81_img" class="img " src="../images/studentcourse/u39.svg"/>
+          <div id="u81_text" class="text " style="display:none; visibility: hidden">
+            <p></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (圆形) -->
+        <div id="u82" class="ax_default ellipse">
+          <img id="u82_img" class="img " src="../images/studentcourse/u39.svg"/>
+          <div id="u82_text" class="text " style="display:none; visibility: hidden">
+            <p></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (圆形) -->
+        <div id="u83" class="ax_default ellipse">
+          <img id="u83_img" class="img " src="../images/studentcourse/u39.svg"/>
+          <div id="u83_text" class="text " style="display:none; visibility: hidden">
+            <p></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (矩形) -->
+        <div id="u84" class="ax_default box_1">
+          <div id="u84_div" class=""></div>
+          <div id="u84_text" class="text ">
+            <p><span>1.软件报告编写</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (动态面板) -->
+        <div id="u85" class="ax_default ax_default_hidden" style="display:none; visibility: hidden">
+          <div id="u85_state0" class="panel_state" data-label="State1" style="">
+            <div id="u85_state0_content" class="panel_state_content">
+
+              <!-- Unnamed (矩形) -->
+              <div id="u86" class="ax_default box_1">
+                <div id="u86_div" class=""></div>
+                <div id="u86_text" class="text " style="display:none; visibility: hidden">
+                  <p></p>
+                </div>
+              </div>
+
+              <!-- Unnamed (矩形) -->
+              <div id="u87" class="ax_default box_1">
+                <div id="u87_div" class=""></div>
+                <div id="u87_text" class="text ">
+                  <p><span>退课</span></p>
+                </div>
+              </div>
+
+              <!-- Unnamed (矩形) -->
+              <div id="u88" class="ax_default box_1">
+                <div id="u88_div" class=""></div>
+                <div id="u88_text" class="text ">
+                  <p><span>归档</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- F (组合) -->
+      <div id="u89" class="ax_default" data-label="F" data-left="417" data-top="645" data-width="316" data-height="196">
+
+        <!-- Unnamed (矩形) -->
+        <div id="u90" class="ax_default box_3">
+          <div id="u90_div" class=""></div>
+          <div id="u90_text" class="text " style="display:none; visibility: hidden">
+            <p></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (形状) -->
+        <div id="u91" class="ax_default icon">
+          <img id="u91_img" class="img " src="../images/studentcourse/u91.svg"/>
+          <div id="u91_text" class="text " style="display:none; visibility: hidden">
+            <p></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (矩形) -->
+        <div id="u92" class="ax_default box_1">
+          <div id="u92_div" class=""></div>
+          <div id="u92_text" class="text ">
+            <p><span>加入课程</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Unnamed (动态面板) -->
+      <div id="u93" class="ax_default ax_default_hidden" style="display:none; visibility: hidden">
+        <div id="u93_state0" class="panel_state" data-label="State1" style="">
+          <div id="u93_state0_content" class="panel_state_content">
+
+            <!-- Unnamed (三角形) -->
+            <div id="u94" class="ax_default flow_shape">
+              <img id="u94_img" class="img " src="../images/studentcourse/u94.svg"/>
+              <div id="u94_text" class="text " style="display:none; visibility: hidden">
+                <p></p>
+              </div>
+            </div>
+
+            <!-- Unnamed (矩形) -->
+            <div id="u95" class="ax_default box_1">
+              <div id="u95_div" class=""></div>
+              <div id="u95_text" class="text " style="display:none; visibility: hidden">
+                <p></p>
+              </div>
+            </div>
+
+            <!-- Unnamed (矩形) -->
+            <div id="u96" class="ax_default box_1">
+              <div id="u96_div" class=""></div>
+              <div id="u96_text" class="text ">
+                <p><span>&nbsp;&nbsp;&nbsp; 开通VIP</span></p>
+              </div>
+            </div>
+
+            <!-- Unnamed (矩形) -->
+            <div id="u97" class="ax_default box_1">
+              <div id="u97_div" class=""></div>
+              <div id="u97_text" class="text ">
+                <p><span>&nbsp;&nbsp;&nbsp; 机构账号绑定</span></p>
+              </div>
+            </div>
+
+            <!-- Unnamed (矩形) -->
+            <div id="u98" class="ax_default box_1">
+              <div id="u98_div" class=""></div>
+              <div id="u98_text" class="text ">
+                <p><span>&nbsp;&nbsp;&nbsp; <a th:href="@{/student/stuMyinfo}">个人设置</a></span></p>
+              </div>
+            </div>
+
+            <!-- Unnamed (矩形) -->
+            <div id="u99" class="ax_default box_1">
+              <div id="u99_div" class=""></div>
+              <div id="u99_text" class="text ">
+                <p><span>&nbsp;<a th:href="@{/logout}">退出账户</a></span></p>
+              </div>
+            </div>
+
+            <!-- Unnamed (图片 ) -->
+            <div id="u100" class="ax_default image">
+              <img id="u100_img" class="img " src="../images/studentcourse/u100.png"/>
+              <div id="u100_text" class="text " style="display:none; visibility: hidden">
+                <p></p>
+              </div>
+            </div>
+
+            <!-- Unnamed (图片 ) -->
+            <div id="u101" class="ax_default image">
+              <img id="u101_img" class="img " src="../images/studentcourse/u101.png"/>
+              <div id="u101_text" class="text " style="display:none; visibility: hidden">
+                <p></p>
+              </div>
+            </div>
+
+            <!-- Unnamed (图片 ) -->
+            <div id="u102" class="ax_default image">
+              <img id="u102_img" class="img " src="../images/studentcourse/u102.png"/>
+              <div id="u102_text" class="text " style="display:none; visibility: hidden">
+                <p></p>
+              </div>
+            </div>
+
+            <!-- Unnamed (图片 ) -->
+            <div id="u103" class="ax_default image">
+              <img id="u103_img" class="img " src="../images/studentcourse/u103.png"/>
+              <div id="u103_text" class="text " style="display:none; visibility: hidden">
+                <p></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!--    归档管理模态框-->
+    <div class="back_div" id="gdgl_div">
+      <div class="archive_main">
+        <div class="archive_title">
+          <div style="width: 100%; text-align: center;">
+            <a style="line-height: 70px;font-size: 18px;font-family: "microsoft yahei";">归档管理</a>
+            <svg id="gdgl_close" style="width: 30px;height: 30px;float: right;margin-right: 30px;margin-top: 20px;" t="1592464762253" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3469" width="200" height="200"><path d="M566.97558594 521.09667969L856.8828125 231.18945312c14.63378906-14.63378906 14.63378906-38.75976563 0-53.39355468l-1.58203125-1.58203125c-14.63378906-14.63378906-38.75976563-14.63378906-53.39355469 0L512 466.51660156 222.09277344 176.21386719c-14.63378906-14.63378906-38.75976563-14.63378906-53.39355469 0l-1.58203125 1.58203125c-15.02929688 14.63378906-15.02929688 38.75976563 0 53.39355469l289.90722656 289.90722656L167.1171875 811.00390625c-14.63378906 14.63378906-14.63378906 38.75976563 0 53.39355469l1.58203125 1.58203125c14.63378906 14.63378906 38.75976563 14.63378906 53.39355469 0L512 576.07226563 801.90722656 865.97949219c14.63378906 14.63378906 38.75976563 14.63378906 53.39355469 0l1.58203125-1.58203125c14.63378906-14.63378906 14.63378906-38.75976563 0-53.39355469L566.97558594 521.09667969z" fill="#363F4D" p-id="3470"></path></svg>
+          </div>
+        </div>
+        <div class="archive_body">
+          <div style="width:650px;margin: 0 auto;" th:fragment="archiveCourseInfos" id="archiveCourseInfosId">
+            <!-- 遍历开始位置 -->
+            <div class="course_list" th:each="archivecourse:${ArchiveUserCourseInfos}">
+              <a th:href="@{/student/homeworkdetail(courseid=${archivecourse.courseid})}" th:text="${archivecourse.coursename}" style="margin-left: 25px;margin-top: 25px;">.NET架构与程序设计</a>
+              <p style="margin-left: 25px;margin-top: 15px;">
+                <span>角色：</span><span th:text="${archivecourse.userrole}">学生</span>
+                <span>老师：</span><span th:text="${archivecourse.teachername}">龙华</span>
+                <span class="ope">
+                    <a href="javascript:void(0);" th:onclick="deleteArchive([[${archivecourse.courseid}]])">恢复</a>
+                    <a href="javascript:void(0);" th:onclick="deleteStuCourse([[${archivecourse.courseid}]])">退课</a>
+                </span>
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <script src="../resources/scripts/axure/ios.js"></script>
+  <script>
+    /*
+    * 加入课程
+    * */
+    function joinCourse() {
+      var jionNumber = prompt("请输入课程加课验证码");
+      // alert(jionNumber);
+      if(jionNumber == ""){
+        alert("课程加课验证码为空");
+      }
+      else{
+        console.log(jionNumber);
+        $.ajax({
+          url:"/student/joinCourse",
+          data:jionNumber,
+          type: "POST",
+          contentType : "application/json",
+          success: function (data) {
+            alert(data);
+            if(data == "添加成功"){
+              location.reload();
+            }
+            console.log("SUCCESS : ", data);
+          },
+          error: function (e) {
+            var checkInfo = e.responseText ;
+            console.log("ERROR : ", e);
+          }
+        });
+      }
+    }
+
+    /*
+    * 退课
+    * */
+    function deleteStuCourse(courseid){
+      var r=confirm("是否确认退出该课程");
+      if(r == true){
+        console.log("当前选择课程id："+courseid)
+        $.ajax({
+          url:"/student/quitCourse",
+          data:courseid,
+          type: "POST",
+          contentType : "application/json",
+          success: function (data) {
+            alert(data);
+            if(data == "退课成功"){
+              location.reload();
+            }
+            console.log("SUCCESS : ", data);
+          },
+          error: function (e) {
+            var checkInfo = e.responseText ;
+            console.log("ERROR : ", e);
+          }
+        });
+      }else{
+        console.log("点击了取消");
+      }
+
+    }
+
+    /*
+   * 添加到归档
+   * */
+    function archiveTeaCourse(courseid){
+      var r = confirm("要归档此课程吗？");
+      if(r = true){
+        $.ajax({
+          url:"/addArchivecourse",
+          data:courseid,
+          type: "POST",
+          contentType : "application/json",
+          success: function (data) {
+            alert(data);
+            if(data == "该课程归档成功") location.reload();
+            console.log("SUCCESS : ", data);
+          },
+          error: function (e) {
+            var checkInfo = e.responseText ;
+            console.log("ERROR : ", e);
+            console.log(checkInfo);
+          }
+        });
+      }
+    }
+
+    /*
+   * 从归档恢复到课程列表
+   * */
+    function deleteArchive(courseid) {
+      var r = confirm("要恢复此课程么？");
+      if (r == true) {
+        $.ajax({
+          url: "/deleteArchiveByCourseid",
+          data: courseid,
+          type: "POST",
+          contentType: "application/json",
+          success: function (data) {
+            alert(data);
+            if (data == "恢复成功") location.reload();
+          },
+          error: function (e) {
+            var checkInfo = e.responseText;
+            console.log("ERROR : ", e);
+            console.log(checkInfo);
+          }
+        });
+      }
+    }
+
+
+
+    /*
+    * 归档管理
+    * */
+    //显示隐藏模态框
+    $("#gdgl").click(function(){
+
+      $.ajax({
+        url:"/student/getArchiveInfos",
+        type: "POST",
+        contentType : "application/json",
+        success: function (data) {
+          $("#archiveCourseInfosId").html(data);//将数据传递给局部刷新的位置
+          console.log(data);
+        },
+        error: function (e) {
+          console.log("ERROR : ", e);
+        }
+      });
+
+      $("#gdgl_div").show()
+    })
+    $("#gdgl_close").click(function(){
+      $("#gdgl_div").hide()
+    })
+
+
+  </script>
+  </body>
+</html>

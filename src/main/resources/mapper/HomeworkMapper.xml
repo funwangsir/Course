@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.course.mapper.HomeworkMapper">
+  <resultMap id="BaseResultMap" type="com.course.model.Homework">
+    <id column="homeworkId" jdbcType="VARCHAR" property="homeworkid" />
+    <result column="publishDate" jdbcType="DATE" property="publishdate" />
+    <result column="homeworkName" jdbcType="VARCHAR" property="homeworkname" />
+    <result column="homeworkIntroduction" jdbcType="VARCHAR" property="homeworkintroduction" />
+    <result column="deadline" jdbcType="DATE" property="deadline" />
+    <result column="maxScore" jdbcType="INTEGER" property="maxscore" />
+    <result column="operateModel" jdbcType="BIT" property="operatemodel" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    homeworkId, publishDate, homeworkName, homeworkIntroduction, deadline, maxScore, 
+    operateModel
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from homework
+    where homeworkId = #{homeworkid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from homework
+    where homeworkId = #{homeworkid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.course.model.Homework">
+    insert into homework (homeworkId, publishDate, homeworkName, 
+      homeworkIntroduction, deadline, maxScore, 
+      operateModel)
+    values (#{homeworkid,jdbcType=VARCHAR}, #{publishdate,jdbcType=DATE}, #{homeworkname,jdbcType=VARCHAR}, 
+      #{homeworkintroduction,jdbcType=VARCHAR}, #{deadline,jdbcType=DATE}, #{maxscore,jdbcType=INTEGER}, 
+      #{operatemodel,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.course.model.Homework">
+    insert into homework
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="homeworkid != null">
+        homeworkId,
+      </if>
+      <if test="publishdate != null">
+        publishDate,
+      </if>
+      <if test="homeworkname != null">
+        homeworkName,
+      </if>
+      <if test="homeworkintroduction != null">
+        homeworkIntroduction,
+      </if>
+      <if test="deadline != null">
+        deadline,
+      </if>
+      <if test="maxscore != null">
+        maxScore,
+      </if>
+      <if test="operatemodel != null">
+        operateModel,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="homeworkid != null">
+        #{homeworkid,jdbcType=VARCHAR},
+      </if>
+      <if test="publishdate != null">
+        #{publishdate,jdbcType=DATE},
+      </if>
+      <if test="homeworkname != null">
+        #{homeworkname,jdbcType=VARCHAR},
+      </if>
+      <if test="homeworkintroduction != null">
+        #{homeworkintroduction,jdbcType=VARCHAR},
+      </if>
+      <if test="deadline != null">
+        #{deadline,jdbcType=DATE},
+      </if>
+      <if test="maxscore != null">
+        #{maxscore,jdbcType=INTEGER},
+      </if>
+      <if test="operatemodel != null">
+        #{operatemodel,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.course.model.Homework">
+    update homework
+    <set>
+      <if test="publishdate != null">
+        publishDate = #{publishdate,jdbcType=DATE},
+      </if>
+      <if test="homeworkname != null">
+        homeworkName = #{homeworkname,jdbcType=VARCHAR},
+      </if>
+      <if test="homeworkintroduction != null">
+        homeworkIntroduction = #{homeworkintroduction,jdbcType=VARCHAR},
+      </if>
+      <if test="deadline != null">
+        deadline = #{deadline,jdbcType=DATE},
+      </if>
+      <if test="maxscore != null">
+        maxScore = #{maxscore,jdbcType=INTEGER},
+      </if>
+      <if test="operatemodel != null">
+        operateModel = #{operatemodel,jdbcType=BIT},
+      </if>
+    </set>
+    where homeworkId = #{homeworkid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.course.model.Homework">
+    update homework
+    set publishDate = #{publishdate,jdbcType=DATE},
+      homeworkName = #{homeworkname,jdbcType=VARCHAR},
+      homeworkIntroduction = #{homeworkintroduction,jdbcType=VARCHAR},
+      deadline = #{deadline,jdbcType=DATE},
+      maxScore = #{maxscore,jdbcType=INTEGER},
+      operateModel = #{operatemodel,jdbcType=BIT}
+    where homeworkId = #{homeworkid,jdbcType=VARCHAR}
+  </update>
+</mapper>

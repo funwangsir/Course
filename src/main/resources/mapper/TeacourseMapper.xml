@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.course.mapper.TeacourseMapper">
+  <resultMap id="BaseResultMap" type="com.course.model.Teacourse">
+    <id column="teacherId" jdbcType="VARCHAR" property="teacherid" />
+    <id column="courseId" jdbcType="VARCHAR" property="courseid" />
+    <result column="courseState" jdbcType="VARCHAR" property="coursestate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    teacherId, courseId, courseState
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.course.model.TeacourseKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from teacourse
+    where teacherId = #{teacherid,jdbcType=VARCHAR}
+      and courseId = #{courseid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.course.model.TeacourseKey">
+    delete from teacourse
+    where teacherId = #{teacherid,jdbcType=VARCHAR}
+      and courseId = #{courseid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.course.model.Teacourse">
+    insert into teacourse (teacherId, courseId, courseState
+      )
+    values (#{teacherid,jdbcType=VARCHAR}, #{courseid,jdbcType=VARCHAR}, #{coursestate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.course.model.Teacourse">
+    insert into teacourse
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="teacherid != null">
+        teacherId,
+      </if>
+      <if test="courseid != null">
+        courseId,
+      </if>
+      <if test="coursestate != null">
+        courseState,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="teacherid != null">
+        #{teacherid,jdbcType=VARCHAR},
+      </if>
+      <if test="courseid != null">
+        #{courseid,jdbcType=VARCHAR},
+      </if>
+      <if test="coursestate != null">
+        #{coursestate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.course.model.Teacourse">
+    update teacourse
+    <set>
+      <if test="coursestate != null">
+        courseState = #{coursestate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where teacherId = #{teacherid,jdbcType=VARCHAR}
+      and courseId = #{courseid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.course.model.Teacourse">
+    update teacourse
+    set courseState = #{coursestate,jdbcType=VARCHAR}
+    where teacherId = #{teacherid,jdbcType=VARCHAR}
+      and courseId = #{courseid,jdbcType=VARCHAR}
+  </update>
+</mapper>

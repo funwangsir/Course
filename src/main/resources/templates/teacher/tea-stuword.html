@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" th:href="@{/static/favicon.ico}">
+    <title>批阅作业</title>
+    <style>
+        body{
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #ECECEC;
+        }
+        .homeworkword{
+            margin: 0 auto;
+            width: 987px;
+            height: 500px;
+            margin-top:25px;
+            background-color: #fff;
+        }
+        .scoreInput{
+            margin-left: 250px;
+            border: aqua;
+            width: 65px;
+            height: 25px;
+            padding-left: 10px;
+        }
+
+    </style>
+    <script th:inline="javascript">
+        var addMessage = [[${addMessage}]];
+        if(addMessage != null){
+            alert(addMessage);
+        }
+    </script>
+</head>
+<body>
+<div style="width: 100%;height: 73px;background-color: #333;">
+    <span style="color: white;line-height: 73px;float: left;margin-left: 550px">
+        <button>下载文件</button>
+    </span>
+    <form th:action="@{/teacher/addScore}" method="post" style="float: left;overflow: hidden;line-height: 73px;">
+        <input type="text" name="score" class="scoreInput" placeholder="输入成绩" th:value="${score}"/>
+        <input type="hidden" name="stuid" th:value="${stuid}">
+        <input type="hidden" name="stunumber" th:value="${stunumber}">
+        <span>
+		<input type="submit" value="提交成绩"/>
+	</span>
+    </form>
+
+</div>
+<p style="color: red">暂时只支持docx文档解析</p>
+<iframe th:src="@{../../{htmlpath}(htmlpath=${htmlpath})}" class="homeworkword"></iframe>
+</body>
+</html>

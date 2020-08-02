@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.course.mapper.CouhomeworkMapper">
+  <resultMap id="BaseResultMap" type="com.course.model.Couhomework">
+    <id column="courseId" jdbcType="VARCHAR" property="courseid" />
+    <id column="homeworkId" jdbcType="VARCHAR" property="homeworkid" />
+    <result column="submitState" jdbcType="VARCHAR" property="submitstate" />
+    <result column="piyueCount" jdbcType="INTEGER" property="piyuecount" />
+    <result column="score" jdbcType="DOUBLE" property="score" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    courseId, homeworkId, submitState, piyueCount, score
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.course.model.CouhomeworkKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from couhomework
+    where courseId = #{courseid,jdbcType=VARCHAR}
+      and homeworkId = #{homeworkid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.course.model.CouhomeworkKey">
+    delete from couhomework
+    where courseId = #{courseid,jdbcType=VARCHAR}
+      and homeworkId = #{homeworkid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.course.model.Couhomework">
+    insert into couhomework (courseId, homeworkId, submitState, 
+      piyueCount, score)
+    values (#{courseid,jdbcType=VARCHAR}, #{homeworkid,jdbcType=VARCHAR}, #{submitstate,jdbcType=VARCHAR}, 
+      #{piyuecount,jdbcType=INTEGER}, #{score,jdbcType=DOUBLE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.course.model.Couhomework">
+    insert into couhomework
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="courseid != null">
+        courseId,
+      </if>
+      <if test="homeworkid != null">
+        homeworkId,
+      </if>
+      <if test="submitstate != null">
+        submitState,
+      </if>
+      <if test="piyuecount != null">
+        piyueCount,
+      </if>
+      <if test="score != null">
+        score,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="courseid != null">
+        #{courseid,jdbcType=VARCHAR},
+      </if>
+      <if test="homeworkid != null">
+        #{homeworkid,jdbcType=VARCHAR},
+      </if>
+      <if test="submitstate != null">
+        #{submitstate,jdbcType=VARCHAR},
+      </if>
+      <if test="piyuecount != null">
+        #{piyuecount,jdbcType=INTEGER},
+      </if>
+      <if test="score != null">
+        #{score,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.course.model.Couhomework">
+    update couhomework
+    <set>
+      <if test="submitstate != null">
+        submitState = #{submitstate,jdbcType=VARCHAR},
+      </if>
+      <if test="piyuecount != null">
+        piyueCount = #{piyuecount,jdbcType=INTEGER},
+      </if>
+      <if test="score != null">
+        score = #{score,jdbcType=DOUBLE},
+      </if>
+    </set>
+    where courseId = #{courseid,jdbcType=VARCHAR}
+      and homeworkId = #{homeworkid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.course.model.Couhomework">
+    update couhomework
+    set submitState = #{submitstate,jdbcType=VARCHAR},
+      piyueCount = #{piyuecount,jdbcType=INTEGER},
+      score = #{score,jdbcType=DOUBLE}
+    where courseId = #{courseid,jdbcType=VARCHAR}
+      and homeworkId = #{homeworkid,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,235 @@
+﻿<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+  <head>
+    <title>register-stu</title>
+    <link rel="shortcut icon" th:href="@{/static/favicon.ico}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <link href="../resources/css/axure_rp_page.css" type="text/css" rel="stylesheet"/>
+    <link href="../data/styles.css" type="text/css" rel="stylesheet"/>
+    <link href="../files/register-stu/styles.css" type="text/css" rel="stylesheet"/>
+    <script src="../resources/scripts/jquery-3.2.1.min.js"></script>
+    <script src="../resources/scripts/axure/axQuery.js"></script>
+    <script src="../resources/scripts/axure/globals.js"></script>
+    <script src="../resources/scripts/axutils.js"></script>
+    <script src="../resources/scripts/axure/annotation.js"></script>
+    <script src="../resources/scripts/axure/axQuery.std.js"></script>
+    <script src="../resources/scripts/axure/doc.js"></script>
+    <script src="../resources/scripts/messagecenter.js"></script>
+    <script src="../resources/scripts/axure/events.js"></script>
+    <script src="../resources/scripts/axure/recording.js"></script>
+    <script src="../resources/scripts/axure/action.js"></script>
+    <script src="../resources/scripts/axure/expr.js"></script>
+    <script src="../resources/scripts/axure/geometry.js"></script>
+    <script src="../resources/scripts/axure/flyout.js"></script>
+    <script src="../resources/scripts/axure/model.js"></script>
+    <script src="../resources/scripts/axure/repeater.js"></script>
+    <script src="../resources/scripts/axure/sto.js"></script>
+    <script src="../resources/scripts/axure/utils.temp.js"></script>
+    <script src="../resources/scripts/axure/variables.js"></script>
+    <script src="../resources/scripts/axure/drag.js"></script>
+    <script src="../resources/scripts/axure/move.js"></script>
+    <script src="../resources/scripts/axure/visibility.js"></script>
+    <script src="../resources/scripts/axure/style.js"></script>
+    <script src="../resources/scripts/axure/adaptive.js"></script>
+    <script src="../resources/scripts/axure/tree.js"></script>
+    <script src="../resources/scripts/axure/init.temp.js"></script>
+    <script src="../resources/scripts/axure/legacy.js"></script>
+    <script src="../resources/scripts/axure/viewer.js"></script>
+    <script src="../resources/scripts/axure/math.js"></script>
+    <script src="../resources/scripts/axure/jquery.nicescroll.min.js"></script>
+    <script src="../data/document.js"></script>
+    <script src="../files/register-stu/data.js"></script>
+    <script type="text/javascript">
+      $axure.utils.getTransparentGifPath = function() { return 'resources/images/transparent.gif'; };
+      $axure.utils.getOtherPath = function() { return 'resources/Other.html'; };
+      $axure.utils.getReloadPath = function() { return 'resources/reload.html'; };
+    </script>
+      <style>
+          body{background-size: 100% 900px}
+      </style>
+  </head>
+  <body>
+    <div id="base" class="">
+
+      <!-- Unnamed (形状) -->
+      <div id="u34" class="ax_default box_1">
+        <img id="u34_img" class="img " src="../images/register-stu/u34.svg"/>
+        <div id="u34_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u35" class="ax_default _一级标题">
+        <div id="u35_div" class=""></div>
+        <div id="u35_text" class="text ">
+          <p><span>学生注册</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (SVG) -->
+      <div id="u36" class="ax_default _图片_">
+        <img id="u36_img" class="img " src="../images/register-stu/u36.svg"/>
+        <div id="u36_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+<!--      学生注册表单-->
+<form action="#" th:action="@{/stuRegister}" method="post" onsubmit="return checkSubmitInfo()">
+  <input type="hidden" value="学生" name="role">
+      <!-- 账号框 (文本框) -->
+      <div id="u37" class="ax_default text_field" data-label="账号框">
+        <div id="u37_div" class=""></div>
+        <input id="u37_input" type="text" name="studentid"  value="" class="u37_input" onblur="check_stu_userid_existed()"/>
+      </div>
+
+      <!-- 密码框 (文本框) -->
+      <div id="u38" class="ax_default text_field" data-label="密码框">
+        <div id="u38_div" class=""></div>
+        <input id="u38_input" type="password" name="studentpassword"  value="" class="u38_input"/>
+      </div>
+
+      <!-- 再次输入密码框 (文本框) -->
+      <div id="u39" class="ax_default text_field" data-label="再次输入密码框">
+        <div id="u39_div" class=""></div>
+        <input id="u39_input" type="password"  value="" class="u39_input"/>
+      </div>
+
+      <!-- 姓名框 (文本框) -->
+      <div id="u40" class="ax_default text_field" data-label="姓名框">
+        <div id="u40_div" class=""></div>
+        <input id="u40_input" type="text" name="studentname" value="" class="u40_input"/>
+      </div>
+
+      <!-- 学号框 (文本框) -->
+      <div id="u41" class="ax_default text_field" data-label="学号框">
+        <div id="u41_div" class=""></div>
+        <input id="u41_input" type="text" name="studentnumber"value="" class="u41_input"/>
+      </div>
+
+      <!-- 学校框 (文本框) -->
+      <div id="u42" class="ax_default text_field" data-label="学校框">
+        <div id="u42_div" class=""></div>
+        <input id="u42_input" type="text" name="studentschool" value="" class="u42_input"/>
+      </div>
+
+      <!-- 验证码框 (文本框) -->
+      <div id="u43" class="ax_default text_field" data-label="验证码框">
+        <div id="u43_div" class=""></div>
+        <input id="u43_input" type="text" value="" class="u43_input inputCheckNum"/>
+      </div>
+
+      <!-- Unnamed (图片 ) -->
+      <div id="u44" class="ax_default _图片_">
+        <canvas id="canvas" width="130px"></canvas>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u45" class="ax_default primary_button">
+        <div id="u45_div" class=""></div>
+        <div id="u45_text" class="text ">
+          <p><span>
+            <input type="submit" value="注册为学生" style="width: 100%;background-color: #169BD5;border-style: none;outline: none"></input>
+          </span></p>
+        </div>
+      </div>
+</form>
+      <!-- Unnamed (矩形) -->
+      <div id="u46" class="ax_default label">
+        <div id="u46_div" class=""></div>
+        <div id="u46_text" class="text ">
+          <p><span>已有帐号？</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u47" class="ax_default label">
+        <div id="u47_div" class=""></div>
+        <div id="u47_text" class="text ">
+          <p><span>去登陆</span></p>
+        </div>
+      </div>
+    </div>
+    <script src="../resources/scripts/axure/ios.js"></script>
+    <script src="../js/myCourse.js"></script>
+  </body>
+  <script>
+      var inputInfo = new Object();
+      inputInfo.stuId = "未输入账号";
+      inputInfo.stuCheckNum = "未输入验证码";
+/*
+* ajxa检查学生账号是否已存在
+*/
+      function check_stu_userid_existed() {
+          //var datas = {"studentid":$('input[name="studentid"]').val()};//JSON.stringify(datas)
+          $.ajax({
+              url:"/checkStuidExisted",
+              data:$('input[name="studentid"]').val(),
+              type: "POST",
+              contentType : "application/json",
+              success: function (data) {
+                  if(data == "该账号已存在" || data =="请输入账号"){
+                      alert(data);
+                      inputInfo.stuId = data; //用于表单提交时处理的数据
+                  }else{
+                      inputInfo.stuId="";
+                  }
+
+                  console.log("SUCCESS : ", data);
+              },
+              error: function (e) {
+                  var checkInfo = e.responseText ;
+                  alert(checkInfo);
+                  console.log("ERROR : ", e);
+              }
+          });
+      }
+
+/*
+* 表单输入信息检查
+*/
+    function checkSubmitInfo() {
+      //有错误提示信息
+      if(inputInfo.stuId !="" ){
+        alert("检测到输入账号有误，请检查");
+        return false;
+      }else if(inputInfo.stuCheckNum !=""){
+        alert("检测到输入验证码有误，请检查");
+        return false;
+      }else if($("#u38_input").val() == "" || $("#u38_input").val() == "密码"){
+          alert("为了账号的安全，请输入密码！！");
+          return false;
+      }else {
+        return true;
+      }
+    }
+
+/*
+* 加载验证码
+* */
+      $(function(){
+          var show_num = [];
+          draw(show_num);
+          $("#canvas").on('click',function(){
+              draw(show_num);
+          })
+          $(".inputCheckNum").blur(function(){
+              var val = $(this).val().toLowerCase();
+              var num = show_num.join("");
+              if(val==''){
+                  alert('请输入验证码！');
+                  inputInfo.stuCheckNum="请输入验证码";
+              }else if(val == num){
+                  console.log('验证码验证正确！');
+                  inputInfo.stuCheckNum="";
+              }else{
+                  alert('验证码错误！请重新输入！');
+                  inputInfo.stuCheckNum="验证码错误";
+              }
+          });
+      });
+
+
+  </script>
+</html>

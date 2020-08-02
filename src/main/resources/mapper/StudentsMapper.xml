@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.course.mapper.StudentsMapper">
+  <resultMap id="BaseResultMap" type="com.course.model.Students">
+    <id column="studentId" jdbcType="VARCHAR" property="studentid" />
+    <result column="studentPassword" jdbcType="VARCHAR" property="studentpassword" />
+    <result column="studentName" jdbcType="VARCHAR" property="studentname" />
+    <result column="studentNumber" jdbcType="VARCHAR" property="studentnumber" />
+    <result column="studentSchool" jdbcType="VARCHAR" property="studentschool" />
+    <result column="role" jdbcType="VARCHAR" property="role" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    studentId, studentPassword, studentName, studentNumber, studentSchool, role
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from students
+    where studentId = #{studentid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from students
+    where studentId = #{studentid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.course.model.Students">
+    insert into students (studentId, studentPassword, studentName, 
+      studentNumber, studentSchool, role
+      )
+    values (#{studentid,jdbcType=VARCHAR}, #{studentpassword,jdbcType=VARCHAR}, #{studentname,jdbcType=VARCHAR}, 
+      #{studentnumber,jdbcType=VARCHAR}, #{studentschool,jdbcType=VARCHAR}, #{role,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.course.model.Students">
+    insert into students
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="studentid != null">
+        studentId,
+      </if>
+      <if test="studentpassword != null">
+        studentPassword,
+      </if>
+      <if test="studentname != null">
+        studentName,
+      </if>
+      <if test="studentnumber != null">
+        studentNumber,
+      </if>
+      <if test="studentschool != null">
+        studentSchool,
+      </if>
+      <if test="role != null">
+        role,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="studentid != null">
+        #{studentid,jdbcType=VARCHAR},
+      </if>
+      <if test="studentpassword != null">
+        #{studentpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="studentname != null">
+        #{studentname,jdbcType=VARCHAR},
+      </if>
+      <if test="studentnumber != null">
+        #{studentnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="studentschool != null">
+        #{studentschool,jdbcType=VARCHAR},
+      </if>
+      <if test="role != null">
+        #{role,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.course.model.Students">
+    update students
+    <set>
+      <if test="studentpassword != null">
+        studentPassword = #{studentpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="studentname != null">
+        studentName = #{studentname,jdbcType=VARCHAR},
+      </if>
+      <if test="studentnumber != null">
+        studentNumber = #{studentnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="studentschool != null">
+        studentSchool = #{studentschool,jdbcType=VARCHAR},
+      </if>
+      <if test="role != null">
+        role = #{role,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where studentId = #{studentid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.course.model.Students">
+    update students
+    set studentPassword = #{studentpassword,jdbcType=VARCHAR},
+      studentName = #{studentname,jdbcType=VARCHAR},
+      studentNumber = #{studentnumber,jdbcType=VARCHAR},
+      studentSchool = #{studentschool,jdbcType=VARCHAR},
+      role = #{role,jdbcType=VARCHAR}
+    where studentId = #{studentid,jdbcType=VARCHAR}
+  </update>
+</mapper>

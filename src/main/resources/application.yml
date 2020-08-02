@@ -1,0 +1,64 @@
+spring:
+  #设置数据源
+  datasource:
+#    远程云数据库
+#    username: xxx
+#    password: xxx
+#    url: jdbc:mysql://xxx:3306/xxxx?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8
+   本地数据库
+    username: root
+    password: wang
+    url: jdbc:mysql://localhost:3306/ketangpai?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8
+
+
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+
+
+#数据源配置信息
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+#   配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    filters: stat,wall,log4j
+    maxPoolPreparedStatementPerConnectionSize: 20
+    useGlobalDataSourceStat: true
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+
+# 禁用缓存
+  thymeleaf:
+    cache: false
+
+#配置文件上传相关限制
+  servlet:
+    multipart:
+#      单个文件最大限制
+      max-file-size: 100MB
+#      所有文件最大限制
+      max-request-size: 300MB
+
+
+
+#指定映射文件位置
+mybatis:
+#  扫描classpath中mapper目录下的映射配置文件，只针对于配置文件放到templates目录下的情况
+  mapper-locations: classpath:/mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#  定义包别名，使用model时可以直接使用model的类型名称而不用加包名
+#  此处不用加
+#  type-aliases-package: com.course.model
+
+server:
+  port: 8081
+
+
+

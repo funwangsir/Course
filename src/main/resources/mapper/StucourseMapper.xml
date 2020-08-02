@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.course.mapper.StucourseMapper">
+  <resultMap id="BaseResultMap" type="com.course.model.Stucourse">
+    <id column="courseId" jdbcType="VARCHAR" property="courseid" />
+    <id column="studentId" jdbcType="VARCHAR" property="studentid" />
+    <result column="score" jdbcType="VARCHAR" property="score" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    courseId, studentId, score
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.course.model.StucourseKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from stucourse
+    where courseId = #{courseid,jdbcType=VARCHAR}
+      and studentId = #{studentid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.course.model.StucourseKey">
+    delete from stucourse
+    where courseId = #{courseid,jdbcType=VARCHAR}
+      and studentId = #{studentid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.course.model.Stucourse">
+    insert into stucourse (courseId, studentId, score
+      )
+    values (#{courseid,jdbcType=VARCHAR}, #{studentid,jdbcType=VARCHAR}, #{score,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.course.model.Stucourse">
+    insert into stucourse
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="courseid != null">
+        courseId,
+      </if>
+      <if test="studentid != null">
+        studentId,
+      </if>
+      <if test="score != null">
+        score,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="courseid != null">
+        #{courseid,jdbcType=VARCHAR},
+      </if>
+      <if test="studentid != null">
+        #{studentid,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null">
+        #{score,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.course.model.Stucourse">
+    update stucourse
+    <set>
+      <if test="score != null">
+        score = #{score,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where courseId = #{courseid,jdbcType=VARCHAR}
+      and studentId = #{studentid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.course.model.Stucourse">
+    update stucourse
+    set score = #{score,jdbcType=VARCHAR}
+    where courseId = #{courseid,jdbcType=VARCHAR}
+      and studentId = #{studentid,jdbcType=VARCHAR}
+  </update>
+</mapper>

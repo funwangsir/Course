@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.course.mapper.UsersMapper">
+  <resultMap id="BaseResultMap" type="com.course.model.Users">
+    <id column="userId" jdbcType="VARCHAR" property="userid" />
+    <result column="userPassword" jdbcType="VARCHAR" property="userpassword" />
+    <result column="userName" jdbcType="VARCHAR" property="username" />
+    <result column="userSchool" jdbcType="VARCHAR" property="userschool" />
+    <result column="userRole" jdbcType="VARCHAR" property="userrole" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    userId, userPassword, userName, userSchool, userRole
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from users
+    where userId = #{userid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from users
+    where userId = #{userid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.course.model.Users">
+    insert into users (userId, userPassword, userName, 
+      userSchool, userRole)
+    values (#{userid,jdbcType=VARCHAR}, #{userpassword,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
+      #{userschool,jdbcType=VARCHAR}, #{userrole,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.course.model.Users">
+    insert into users
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        userId,
+      </if>
+      <if test="userpassword != null">
+        userPassword,
+      </if>
+      <if test="username != null">
+        userName,
+      </if>
+      <if test="userschool != null">
+        userSchool,
+      </if>
+      <if test="userrole != null">
+        userRole,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="userpassword != null">
+        #{userpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="userschool != null">
+        #{userschool,jdbcType=VARCHAR},
+      </if>
+      <if test="userrole != null">
+        #{userrole,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.course.model.Users">
+    update users
+    <set>
+      <if test="userpassword != null">
+        userPassword = #{userpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        userName = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="userschool != null">
+        userSchool = #{userschool,jdbcType=VARCHAR},
+      </if>
+      <if test="userrole != null">
+        userRole = #{userrole,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where userId = #{userid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.course.model.Users">
+    update users
+    set userPassword = #{userpassword,jdbcType=VARCHAR},
+      userName = #{username,jdbcType=VARCHAR},
+      userSchool = #{userschool,jdbcType=VARCHAR},
+      userRole = #{userrole,jdbcType=VARCHAR}
+    where userId = #{userid,jdbcType=VARCHAR}
+  </update>
+</mapper>

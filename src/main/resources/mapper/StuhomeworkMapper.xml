@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.course.mapper.StuhomeworkMapper">
+  <resultMap id="BaseResultMap" type="com.course.model.Stuhomework">
+    <id column="studentId" jdbcType="VARCHAR" property="studentid" />
+    <id column="homeworkId" jdbcType="VARCHAR" property="homeworkid" />
+    <result column="submitDate" jdbcType="DATE" property="submitdate" />
+    <result column="message" jdbcType="VARCHAR" property="message" />
+    <result column="submitState" jdbcType="VARCHAR" property="submitstate" />
+    <result column="submitCount" jdbcType="INTEGER" property="submitcount" />
+    <result column="score" jdbcType="VARCHAR" property="score" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    studentId, homeworkId, submitDate, message, submitState, submitCount, score
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.course.model.StuhomeworkKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from stuhomework
+    where studentId = #{studentid,jdbcType=VARCHAR}
+      and homeworkId = #{homeworkid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.course.model.StuhomeworkKey">
+    delete from stuhomework
+    where studentId = #{studentid,jdbcType=VARCHAR}
+      and homeworkId = #{homeworkid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.course.model.Stuhomework">
+    insert into stuhomework (studentId, homeworkId, submitDate, 
+      message, submitState, submitCount, 
+      score)
+    values (#{studentid,jdbcType=VARCHAR}, #{homeworkid,jdbcType=VARCHAR}, #{submitdate,jdbcType=DATE}, 
+      #{message,jdbcType=VARCHAR}, #{submitstate,jdbcType=VARCHAR}, #{submitcount,jdbcType=INTEGER}, 
+      #{score,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.course.model.Stuhomework">
+    insert into stuhomework
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="studentid != null">
+        studentId,
+      </if>
+      <if test="homeworkid != null">
+        homeworkId,
+      </if>
+      <if test="submitdate != null">
+        submitDate,
+      </if>
+      <if test="message != null">
+        message,
+      </if>
+      <if test="submitstate != null">
+        submitState,
+      </if>
+      <if test="submitcount != null">
+        submitCount,
+      </if>
+      <if test="score != null">
+        score,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="studentid != null">
+        #{studentid,jdbcType=VARCHAR},
+      </if>
+      <if test="homeworkid != null">
+        #{homeworkid,jdbcType=VARCHAR},
+      </if>
+      <if test="submitdate != null">
+        #{submitdate,jdbcType=DATE},
+      </if>
+      <if test="message != null">
+        #{message,jdbcType=VARCHAR},
+      </if>
+      <if test="submitstate != null">
+        #{submitstate,jdbcType=VARCHAR},
+      </if>
+      <if test="submitcount != null">
+        #{submitcount,jdbcType=INTEGER},
+      </if>
+      <if test="score != null">
+        #{score,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.course.model.Stuhomework">
+    update stuhomework
+    <set>
+      <if test="submitdate != null">
+        submitDate = #{submitdate,jdbcType=DATE},
+      </if>
+      <if test="message != null">
+        message = #{message,jdbcType=VARCHAR},
+      </if>
+      <if test="submitstate != null">
+        submitState = #{submitstate,jdbcType=VARCHAR},
+      </if>
+      <if test="submitcount != null">
+        submitCount = #{submitcount,jdbcType=INTEGER},
+      </if>
+      <if test="score != null">
+        score = #{score,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where studentId = #{studentid,jdbcType=VARCHAR}
+      and homeworkId = #{homeworkid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.course.model.Stuhomework">
+    update stuhomework
+    set submitDate = #{submitdate,jdbcType=DATE},
+      message = #{message,jdbcType=VARCHAR},
+      submitState = #{submitstate,jdbcType=VARCHAR},
+      submitCount = #{submitcount,jdbcType=INTEGER},
+      score = #{score,jdbcType=VARCHAR}
+    where studentId = #{studentid,jdbcType=VARCHAR}
+      and homeworkId = #{homeworkid,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.course.mapper.CourseMapper">
+  <resultMap id="BaseResultMap" type="com.course.model.Course">
+    <id column="courseId" jdbcType="VARCHAR" property="courseid" />
+    <result column="courseName" jdbcType="VARCHAR" property="coursename" />
+    <result column="courseClass" jdbcType="VARCHAR" property="courseclass" />
+    <result column="courseYear" jdbcType="VARCHAR" property="courseyear" />
+    <result column="courseTerm" jdbcType="VARCHAR" property="courseterm" />
+    <result column="memberCount" jdbcType="INTEGER" property="membercount" />
+    <result column="operateModel" jdbcType="BIT" property="operatemodel" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    courseId, courseName, courseClass, courseYear, courseTerm, memberCount, operateModel
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from course
+    where courseId = #{courseid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from course
+    where courseId = #{courseid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.course.model.Course">
+    insert into course (courseId, courseName, courseClass, 
+      courseYear, courseTerm, memberCount, 
+      operateModel)
+    values (#{courseid,jdbcType=VARCHAR}, #{coursename,jdbcType=VARCHAR}, #{courseclass,jdbcType=VARCHAR}, 
+      #{courseyear,jdbcType=VARCHAR}, #{courseterm,jdbcType=VARCHAR}, #{membercount,jdbcType=INTEGER}, 
+      #{operatemodel,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.course.model.Course">
+    insert into course
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="courseid != null">
+        courseId,
+      </if>
+      <if test="coursename != null">
+        courseName,
+      </if>
+      <if test="courseclass != null">
+        courseClass,
+      </if>
+      <if test="courseyear != null">
+        courseYear,
+      </if>
+      <if test="courseterm != null">
+        courseTerm,
+      </if>
+      <if test="membercount != null">
+        memberCount,
+      </if>
+      <if test="operatemodel != null">
+        operateModel,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="courseid != null">
+        #{courseid,jdbcType=VARCHAR},
+      </if>
+      <if test="coursename != null">
+        #{coursename,jdbcType=VARCHAR},
+      </if>
+      <if test="courseclass != null">
+        #{courseclass,jdbcType=VARCHAR},
+      </if>
+      <if test="courseyear != null">
+        #{courseyear,jdbcType=VARCHAR},
+      </if>
+      <if test="courseterm != null">
+        #{courseterm,jdbcType=VARCHAR},
+      </if>
+      <if test="membercount != null">
+        #{membercount,jdbcType=INTEGER},
+      </if>
+      <if test="operatemodel != null">
+        #{operatemodel,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.course.model.Course">
+    update course
+    <set>
+      <if test="coursename != null">
+        courseName = #{coursename,jdbcType=VARCHAR},
+      </if>
+      <if test="courseclass != null">
+        courseClass = #{courseclass,jdbcType=VARCHAR},
+      </if>
+      <if test="courseyear != null">
+        courseYear = #{courseyear,jdbcType=VARCHAR},
+      </if>
+      <if test="courseterm != null">
+        courseTerm = #{courseterm,jdbcType=VARCHAR},
+      </if>
+      <if test="membercount != null">
+        memberCount = #{membercount,jdbcType=INTEGER},
+      </if>
+      <if test="operatemodel != null">
+        operateModel = #{operatemodel,jdbcType=BIT},
+      </if>
+    </set>
+    where courseId = #{courseid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.course.model.Course">
+    update course
+    set courseName = #{coursename,jdbcType=VARCHAR},
+      courseClass = #{courseclass,jdbcType=VARCHAR},
+      courseYear = #{courseyear,jdbcType=VARCHAR},
+      courseTerm = #{courseterm,jdbcType=VARCHAR},
+      memberCount = #{membercount,jdbcType=INTEGER},
+      operateModel = #{operatemodel,jdbcType=BIT}
+    where courseId = #{courseid,jdbcType=VARCHAR}
+  </update>
+</mapper>

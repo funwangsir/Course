@@ -1,0 +1,237 @@
+﻿<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+  <head>
+    <title>register-tea</title>
+    <link rel="shortcut icon" th:href="@{/static/favicon.ico}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <link href="../resources/css/axure_rp_page.css" type="text/css" rel="stylesheet"/>
+    <link href="../data/styles.css" type="text/css" rel="stylesheet"/>
+    <link href="../files/register-tea/styles.css" type="text/css" rel="stylesheet"/>
+    <script src="../resources/scripts/jquery-3.2.1.min.js"></script>
+    <script src="../resources/scripts/axure/axQuery.js"></script>
+    <script src="../resources/scripts/axure/globals.js"></script>
+    <script src="../resources/scripts/axutils.js"></script>
+    <script src="../resources/scripts/axure/annotation.js"></script>
+    <script src="../resources/scripts/axure/axQuery.std.js"></script>
+    <script src="../resources/scripts/axure/doc.js"></script>
+    <script src="../resources/scripts/messagecenter.js"></script>
+    <script src="../resources/scripts/axure/events.js"></script>
+    <script src="../resources/scripts/axure/recording.js"></script>
+    <script src="../resources/scripts/axure/action.js"></script>
+    <script src="../resources/scripts/axure/expr.js"></script>
+    <script src="../resources/scripts/axure/geometry.js"></script>
+    <script src="../resources/scripts/axure/flyout.js"></script>
+    <script src="../resources/scripts/axure/model.js"></script>
+    <script src="../resources/scripts/axure/repeater.js"></script>
+    <script src="../resources/scripts/axure/sto.js"></script>
+    <script src="../resources/scripts/axure/utils.temp.js"></script>
+    <script src="../resources/scripts/axure/variables.js"></script>
+    <script src="../resources/scripts/axure/drag.js"></script>
+    <script src="../resources/scripts/axure/move.js"></script>
+    <script src="../resources/scripts/axure/visibility.js"></script>
+    <script src="../resources/scripts/axure/style.js"></script>
+    <script src="../resources/scripts/axure/adaptive.js"></script>
+    <script src="../resources/scripts/axure/tree.js"></script>
+    <script src="../resources/scripts/axure/init.temp.js"></script>
+    <script src="../resources/scripts/axure/legacy.js"></script>
+    <script src="../resources/scripts/axure/viewer.js"></script>
+    <script src="../resources/scripts/axure/math.js"></script>
+    <script src="../resources/scripts/axure/jquery.nicescroll.min.js"></script>
+    <script src="../data/document.js"></script>
+    <script src="../files/register-tea/data.js"></script>
+    <script type="text/javascript">
+      $axure.utils.getTransparentGifPath = function() { return 'resources/images/transparent.gif'; };
+      $axure.utils.getOtherPath = function() { return 'resources/Other.html'; };
+      $axure.utils.getReloadPath = function() { return 'resources/reload.html'; };
+    </script>
+    <style>
+      body{background-size: 100% 900px}
+    </style>
+  </head>
+  <body>
+    <div id="base" class="">
+
+      <!-- Unnamed (形状) -->
+      <div id="u48" class="ax_default box_1">
+        <img id="u48_img" class="img " src="../images/register-stu/u34.svg"/>
+        <div id="u48_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u49" class="ax_default _一级标题">
+        <div id="u49_div" class=""></div>
+        <div id="u49_text" class="text ">
+          <p><span>教师注册</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (SVG) -->
+      <div id="u50" class="ax_default _图片_">
+        <img id="u50_img" class="img " src="../images/register-stu/u36.svg"/>
+        <div id="u50_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+<!--      教师注册表单-->
+      <form action="#" th:action="@{/teaRegister}" method="post" onsubmit="return checkSubmitInfo()">
+        <input type="hidden" value="老师" name="role">
+      <!-- 账号框 (文本框) -->
+      <div id="u51" class="ax_default text_field" data-label="账号框">
+        <div id="u51_div" class=""></div>
+        <input id="u51_input" type="text" value="" name="teacherid" class="u51_input" onblur="check_stu_userid_existed()"/>
+      </div>
+
+      <!-- 密码框 (文本框) -->
+      <div id="u52" class="ax_default text_field" data-label="密码框">
+        <div id="u52_div" class=""></div>
+        <input id="u52_input" type="password" name="teacherpassword" value="" class="u52_input"/>
+      </div>
+
+      <!-- 再次输入密码框 (文本框) -->
+      <div id="u53" class="ax_default text_field" data-label="再次输入密码框">
+        <div id="u53_div" class=""></div>
+        <input id="u53_input" type="password" value=""  class="u53_input"/>
+      </div>
+
+      <!-- 姓名框 (文本框) -->
+      <div id="u54" class="ax_default text_field" data-label="姓名框">
+        <div id="u54_div" class=""></div>
+        <input id="u54_input" type="text" value="" name="teachername" class="u54_input"/>
+      </div>
+
+      <!-- 学校框 (文本框) -->
+      <div id="u55" class="ax_default text_field" data-label="学校框">
+        <div id="u55_div" class=""></div>
+        <input id="u55_input" type="text" value="" name="teacherschool" class="u55_input"/>
+      </div>
+
+      <!-- 验证码框 (文本框) -->
+      <div id="u56" class="ax_default text_field " data-label="验证码框">
+        <div id="u56_div" class=""></div>
+        <input id="u56_input" type="text" value="" class="u56_input inputCheckNum"/>
+      </div>
+
+      <!-- Unnamed (图片 ) -->
+      <div id="u57" class="ax_default _图片_">
+        <canvas id="canvas" width="130px"></canvas>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u58" class="ax_default primary_button">
+        <div id="u58_div" class=""></div>
+        <div id="u58_text" class="text ">
+          <p><span>
+             <input type="submit" value="注册为老师" style="width: 100%;background-color: #169BD5;border-style: none;outline: none"></input>
+          </span></p>
+        </div>
+      </div>
+</form>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u59" class="ax_default label">
+        <div id="u59_div" class=""></div>
+        <div id="u59_text" class="text ">
+          <p><span>已有帐号？</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u60" class="ax_default label">
+        <div id="u60_div" class=""></div>
+        <div id="u60_text" class="text ">
+          <p><span>去登陆</span></p>
+        </div>
+      </div>
+    </div>
+
+    <script src="../resources/scripts/axure/ios.js"></script>
+    <script src="../js/myCourse.js"></script>
+    <script>
+      var inputInfo = new Object();
+      inputInfo.stuId = "未输入账号";
+      inputInfo.stuCheckNum = "未输入验证码";
+
+
+
+/*
+* ajxa检查教师账号是否已存在
+*/
+      function check_stu_userid_existed() {
+        $.ajax({
+          url:"/checkTeaidExisted",
+          data:$('input[name="teacherid"]').val(),
+          type: "POST",
+          contentType : "application/json",
+          success: function (data) {
+            if(data == "该账号已存在" || data =="请输入账号"){
+              alert(data);
+              inputInfo.stuId = data; //用于表单提交时处理的数据
+            }else{
+              inputInfo.stuId="";
+            }
+
+            console.log("SUCCESS : ", data);
+          },
+          error: function (e) {
+            var checkInfo = e.responseText ;
+            alert(checkInfo);
+            console.log("ERROR : ", e);
+          }
+        });
+      }
+
+
+
+
+/*
+* 表单输入信息检查
+*/
+      function checkSubmitInfo() {
+        //有错误提示信息
+        if(inputInfo.stuId !="" ){
+          alert("检测到输入账号有误，请检查");
+          return false;
+        }else if(inputInfo.stuCheckNum !=""){
+          alert("检测到输入验证码有误，请检查");
+          return false;
+        }else if($("#u52_input").val() == "" || $("#u52_input").val() == "密码"){
+          alert("为了账号的安全，请输入密码！！");
+          return false;
+        }else {
+          return true;
+        }
+      }
+
+
+
+/*
+* 加载验证码
+* */
+      $(function(){
+        var show_num = [];
+        draw(show_num);
+        $("#canvas").on('click',function(){
+          draw(show_num);
+        })
+        $(".inputCheckNum").blur(function(){
+          var val = $(this).val().toLowerCase();
+          var num = show_num.join("");
+          if(val==''){
+            alert('请输入验证码！');
+            inputInfo.stuCheckNum="请输入验证码";
+          }else if(val == num){
+            console.log('验证码验证正确！');
+            inputInfo.stuCheckNum="";
+          }else{
+            alert('验证码错误！请重新输入！');
+            inputInfo.stuCheckNum="验证码错误";
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
